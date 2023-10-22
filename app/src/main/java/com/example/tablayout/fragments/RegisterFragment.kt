@@ -25,7 +25,8 @@ class RegisterFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_register, container, false)
+        binding = FragmentRegisterBinding.inflate(inflater, container, false)
+
         val view = binding.root
         val emailInput = binding.email
         val usernameInput = binding.username
@@ -39,5 +40,6 @@ class RegisterFragment : Fragment() {
             intentRegisterFragment.putExtra(EXTRA_PASSWORD, passwordInput.text.toString())
             startActivity(intentRegisterFragment)
         }
+        return view
     }
 }
