@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.example.tablayout.HomeActivity
 import com.example.tablayout.MainActivity
 import com.example.tablayout.R
 import com.example.tablayout.databinding.FragmentLoginBinding
@@ -35,7 +36,7 @@ class LoginFragment : Fragment() {
             val password = passwordInput.text.toString()
             if (isLoginValid(username, password)) {
                 val intentLoginFragment =
-                    Intent(requireContext(), MainActivity::class.java)
+                    Intent(requireContext(), HomeActivity::class.java)
                 intentLoginFragment.putExtra(EXTRA_NAME, username)
                 intentLoginFragment.putExtra(EXTRA_PASSWORD, password)
                 startActivity(intentLoginFragment)

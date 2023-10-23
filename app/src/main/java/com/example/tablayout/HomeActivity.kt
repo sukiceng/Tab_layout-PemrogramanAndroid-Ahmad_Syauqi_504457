@@ -1,7 +1,10 @@
 package com.example.tablayout
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import com.example.tablayout.databinding.HomeBinding
 
 class HomeActivity : AppCompatActivity() {
@@ -12,5 +15,22 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
         with(binding) {
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.dashboard, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId){
+            R.id.logout -> {
+                val intentGoHome = Intent(this, MainActivity::class.java)
+                startActivity(intentGoHome)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+
     }
 }
